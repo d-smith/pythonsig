@@ -24,6 +24,16 @@ contract Sig {
 
     }
 
+    function computeHash(
+        bytes calldata message
+    ) public pure returns (bytes32) {
+
+        bytes32 digest = keccak256(message);
+
+        return digest;
+
+    }   
+
     function _recoverAttesterSignature(bytes32 _digest, bytes memory _signature)
         internal
         pure
